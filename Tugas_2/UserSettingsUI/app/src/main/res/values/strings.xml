@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UserSettings</string>
+    <string-array name="country_list">
+        <item>Country</item>
+    </string-array>
+
+</resources>
