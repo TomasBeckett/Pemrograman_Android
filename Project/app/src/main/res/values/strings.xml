@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">GoFit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_workout">Workout</string>
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Schedule Fragment -->
+    <string name="weekly_schedule">Jadwal Mingguan</string>
+    <string name="monday">Senin</string>
+    <string name="chest_triceps">Dada &amp; Trisep</string>
+    <string name="monday_time">08:00 – 09:30</string>
+    <string name="wednesday">Rabu</string>
+    <string name="back_biceps">Punggung &amp; Bisep</string>
+    <string name="wednesday_time">17:00 – 18:30</string>
+    <string name="friday">Jumat</string>
+    <string name="legs_shoulders">Kaki &amp; Bahu</string>
+    <string name="friday_time">07:00 – 08:30</string>
+
+    <!-- Profile Fragment -->
+    <string name="profile_name_placeholder">Tomas Becket</string>
+    <string name="profile_nim_placeholder">NIM: 71230985</string>
+    <string name="weight_label">Berat Badan</string>
+    <string name="weight_value">70 kg</string>
+    <string name="height_label">Tinggi Badan</string>
+    <string name="height_value">175 cm</string>
+    <string name="age_label">Usia</string>
+    <string name="age_value">21</string>
+    <string name="edit_profile">Edit Profil</string>
+
+    <!-- Workout Fragment -->
+    <string name="workout_list">Daftar Latihan</string>
+    <string name="search_workouts">Cari latihan&#8230;</string>
+    <string name="all">Semua</string>
+    <string name="strength">Kekuatan</string>
+    <string name="cardio">Kardio</string>
+    <string name="yoga">Yoga</string>
+    <string name="workout_duration">30 menit</string>
+    <string name="workout_level">Menengah</string>
+    <string name="hiit_workout_title">HIIT Kardio</string>
+
+    <!-- Home Fragment -->
+    <string name="welcome_back">Selamat Datang Kembali! 👋</string>
+    <string name="home_subtitle">Siap untuk mencapai targetmu?</string>
+    <string name="daily_summary">Ringkasan Harian</string>
+    <string name="calories">Kalori</string>
+    <string name="steps">Langkah</string>
+    <string name="workout_time">Waktu Latihan</string>
+    <string name="cal_value">1.250 kkal</string>
+    <string name="step_value">8.432</string>
+    <string name="time_value">45 menit</string>
+    <string name="cal_value_short">1.250</string>
+    <string name="step_value_short">8.432</string>
+    <string name="time_value_short">45m</string>
+    <string name="recommended_workout">Rekomendasi Untukmu</string>
+    <string name="featured_workout_title">Seluruh Tubuh (Lanjutan)</string>
+    <string name="featured_workout_desc">Bakar 400 kalori dalam 30 menit</string>
+    <string name="start_now">Mulai Sekarang</string>
+</resources>
