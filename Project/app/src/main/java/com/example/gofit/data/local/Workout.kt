@@ -1,4 +1,4 @@
-package com.example.gofit
+package com.example.gofit.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

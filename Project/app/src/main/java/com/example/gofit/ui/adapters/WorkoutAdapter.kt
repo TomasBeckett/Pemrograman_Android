@@ -1,17 +1,20 @@
-package com.example.gofit
+package com.example.gofit.ui.adapters
 
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gofit.R
+import com.example.gofit.data.remote.RemoteWorkout
 
-class WorkoutAdapter(private val workouts: List<Workout>) :
+class WorkoutAdapter(private var workouts: List<RemoteWorkout>) :
     RecyclerView.Adapter<WorkoutAdapter.WorkoutViewHolder>() {
 
     class WorkoutViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.workout_title)
-        val duration: TextView = view.findViewById(R.id.workout_duration)
+        val description: TextView = view.findViewById(R.id.workout_duration)
         val level: TextView = view.findViewById(R.id.workout_level)
     }
 
@@ -23,10 +26,24 @@ class WorkoutAdapter(private val workouts: List<Workout>) :
 
     override fun onBindViewHolder(holder: WorkoutViewHolder, position: Int) {
         val workout = workouts[position]
-        holder.title.text = workout.title
-        holder.duration.text = workout.duration
-        holder.level.text = workout.level
+        
+        // Handling nullable fields to prevent crash
+        holder.title.text = workout.name ?: "No Title"
+        
+        val desc = workout.description ?: ""
+        if (desc.isNotEmpty()) {
+            holder.description.text = Html.fromHtml(desc, Html.FROM_HTML_MODE_COMPACT)
+        } else {
+            holder.description.text = "No description available"
+        }
+        
+        holder.level.text = "ID: ${workout.id ?: "N/A"}"
     }
 
     override fun getItemCount() = workouts.size
+
+    fun updateData(newWorkouts: List<RemoteWorkout>?) {
+        workouts = newWorkouts ?: emptyList()
+        notifyDataSetChanged()
+    }
 }

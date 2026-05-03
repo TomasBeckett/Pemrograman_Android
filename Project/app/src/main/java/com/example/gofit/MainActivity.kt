@@ -1,11 +1,12 @@
 package com.example.gofit
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.gofit.ui.fragments.HomeFragment
+import com.example.gofit.ui.fragments.ProfileFragment
+import com.example.gofit.ui.fragments.ScheduleFragment
+import com.example.gofit.ui.fragments.WorkoutFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -18,8 +19,9 @@ class MainActivity : AppCompatActivity() {
 
         bottomNav = findViewById(R.id.bottom_navigation)
 
-        // Default fragment
-        loadFragment(HomeFragment())
+        if (savedInstanceState == null) {
+            loadFragment(HomeFragment())
+        }
 
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {

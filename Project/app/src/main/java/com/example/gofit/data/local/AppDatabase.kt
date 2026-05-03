@@ -1,4 +1,4 @@
-package com.example.gofit
+package com.example.gofit.data.local
 
 import android.content.Context
 import androidx.room.Database
