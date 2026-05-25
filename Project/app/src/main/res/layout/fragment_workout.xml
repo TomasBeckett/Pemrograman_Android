@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212"
-    tools:context=".WorkoutFragment">
+    tools:context=".ui.fragments.WorkoutFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,10 +17,103 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="Daftar Latihan (Web Service)"
+            android:text="Daftar Latihan"
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Cari latihan..."
+            app:boxBackgroundColor="#1F1F1F"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeWidth="0dp"
+            app:hintTextColor="#BBBBBB"
+            app:startIconDrawable="@android:drawable/ic_menu_search"
+            app:startIconTint="#BBBBBB">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_search_workout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Kategori Filter (Chips) -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleLine="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_chest"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chest"
+                    app:chipBackgroundColor="#1F1F1F"
+                    android:textColor="#FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_biceps"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Biceps"
+                    app:chipBackgroundColor="#1F1F1F"
+                    android:textColor="#FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_triceps"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Triceps"
+                    app:chipBackgroundColor="#1F1F1F"
+                    android:textColor="#FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_cardio"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cardio"
+                    app:chipBackgroundColor="#1F1F1F"
+                    android:textColor="#FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_stretching"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stretching"
+                    app:chipBackgroundColor="#1F1F1F"
+                    android:textColor="#FFFFFF" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_abs"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Abdominals"
+                    app:chipBackgroundColor="#1F1F1F"
+                    android:textColor="#FFFFFF" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_workout"

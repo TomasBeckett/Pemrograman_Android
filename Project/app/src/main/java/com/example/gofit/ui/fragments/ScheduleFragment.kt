@@ -5,22 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gofit.R
-import com.example.gofit.data.remote.ApiService
+import com.example.gofit.data.remote.Muscle
 import com.example.gofit.ui.adapters.MuscleAdapter
-import kotlinx.coroutines.launch
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ScheduleFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var adapter: MuscleAdapter
-    private val apiService by lazy { ApiService.create() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,22 +33,35 @@ class ScheduleFragment : Fragment() {
         adapter = MuscleAdapter(emptyList())
         recyclerView.adapter = adapter
 
-        fetchMuscles()
+        loadMuscles()
 
         return view
     }
 
-    private fun fetchMuscles() {
+    private fun loadMuscles() {
         progressBar.visibility = View.VISIBLE
-        viewLifecycleOwner.lifecycleScope.launch {
-            try {
-                val response = apiService.getMuscles()
-                adapter.updateData(response.results)
-                progressBar.visibility = View.GONE
-            } catch (e: Exception) {
-                progressBar.visibility = View.GONE
-                Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_LONG).show()
-            }
-        }
+        
+        // Daftar otot yang didukung oleh API Ninjas
+        val muscleList = listOf(
+            Muscle(1, "abdominals"),
+            Muscle(2, "abductors"),
+            Muscle(3, "adductors"),
+            Muscle(4, "biceps"),
+            Muscle(5, "calves"),
+            Muscle(6, "chest"),
+            Muscle(7, "forearms"),
+            Muscle(8, "glutes"),
+            Muscle(9, "hamstrings"),
+            Muscle(10, "lats"),
+            Muscle(11, "lower_back"),
+            Muscle(12, "middle_back"),
+            Muscle(13, "neck"),
+            Muscle(14, "quadriceps"),
+            Muscle(15, "traps"),
+            Muscle(16, "triceps")
+        )
+        
+        adapter.updateData(muscleList)
+        progressBar.visibility = View.GONE
     }
 }

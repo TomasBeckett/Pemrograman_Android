@@ -1,25 +1,16 @@
 package com.example.gofit.data.remote
 
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Header
+import retrofit2.http.Query
 
 interface ApiService {
-    @GET("exercise/?language=2")
-    suspend fun getExercises(): WorkoutResponse
-
-    @GET("muscle/")
-    suspend fun getMuscles(): MuscleResponse
-
-    companion object {
-        private const val BASE_URL = "https://wger.de/api/v2/"
-
-        fun create(): ApiService {
-            return Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(ApiService::class.java)
-        }
-    }
+    @GET("exercises")
+    suspend fun getExercises(
+        @Header("X-Api-Key") apiKey: String,
+        @Query("name") name: String? = null,
+        @Query("type") type: String? = null,
+        @Query("muscle") muscle: String? = null,
+        @Query("difficulty") difficulty: String? = null
+    ): List<RemoteWorkout>
 }
